@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
-const colors = require('colors');
 
 function tokenAuth(req, res, next) {
 	const token = req.headers.token;
-	console.log(token.yellow);
+	console.log(token);
 	jwt.verify(token, process.env.JWTKEY, (err, verifiedJwt) => {
 		if (err) {
 			let response = {
