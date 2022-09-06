@@ -13,9 +13,17 @@ exports.getChecklist = async (req, res) => {
 };
 
 //@desc      Create new checklist
-//@route     POST /api/checklist/:id
-exports.createChecklist = async () => {};
+//@route     POST /api/checklist
+exports.createChecklist = async (req, res) => {
+	const userType = req.userDetails.role;
+	const userId = req.userDetails.id;
+	let checklistData = {
+		name: req.body.name,
+		createdBy: userId,
+		question: req.body.question,
+	};
+};
 
 //@desc      Submit checklist question answer
-//@route     POST /api/checklist/:id
+//@route     POST /api/checklist
 exports.submitChecklist = async (req, res) => {};
