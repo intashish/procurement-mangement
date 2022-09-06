@@ -1,5 +1,4 @@
 const express = require('express');
-const rootRouter = express.Router();
 const tokenVerification = require('../middleware/tokenAuth');
 
 const auth = require('./auth');
@@ -7,10 +6,12 @@ const user = require('./userRoutes');
 const checklist = require('./checklist');
 const orders = require('./order');
 
-//public
+const rootRouter = express.Router();
+
+// public
 rootRouter.use('/api', auth);
 
-//private
+// private
 rootRouter.use(tokenVerification);
 rootRouter.use('/api', user);
 rootRouter.use('/api', checklist);

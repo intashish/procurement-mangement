@@ -1,13 +1,12 @@
 const express = require('express');
 // const createError = require('http-errors');
 const bodyParser = require('body-parser');
-
-const routing = require('./routes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
 const dotenv = require('dotenv');
+const routing = require('./routes');
 
 const app = express();
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
 
 const options = {
 	definition: {

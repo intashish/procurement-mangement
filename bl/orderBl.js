@@ -1,9 +1,9 @@
 const Orders = require('../dao/orders');
-const colors = require('colors');
+
 async function getAllOrder() {
 	try {
 		const result = await Orders.findAll();
-		console.log(result.green);
+		console.log(result);
 		if (result) {
 			return { status: 'success', message: 'Data found', data: result };
 		} else {
@@ -28,7 +28,7 @@ async function getOrder(id) {
 }
 
 async function createOrder(user, ordersDetail) {
-	if (user.type != 'PM') {
+	if (user.type !== 'PM') {
 		return { status: 'success', message: 'You are not authorized to create order', data: {} };
 	}
 	try {
